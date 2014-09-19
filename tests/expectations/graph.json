@@ -1,0 +1,18 @@
+{
+  "tests/fixtures/a.js": {
+    "imports": {
+      "lib/b": [
+        "default"
+      ]
+    },
+    "exports": [
+      "b"
+    ]
+  },
+  "tests/fixtures/lib/b.js": {
+    "imports": {},
+    "exports": [
+      "default"
+    ]
+  }
+}
