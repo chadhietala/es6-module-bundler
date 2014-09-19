@@ -10,27 +10,20 @@ describe('GraphResolver', function () {
   });
 
 
-  it( 'should create a graph', function (done) {
+  it( 'should create a graph', function () {
     var expectation = JSON.stringify(
       JSON.parse( fs.readFileSync( './tests/expectations/graph.json', 'utf8' ) )
     );
 
-    graphResolver.build().then( function () {
-      expect( graphResolver.graph ).to.be.an( 'object' );
-      expect( JSON.stringify( graphResolver.graph ) ).to.equal( expectation );
-      done();
-    });
-
+    expect( graphResolver.graph ).to.be.an( 'object' );
+    expect( JSON.stringify( graphResolver.graph ) ).to.equal( expectation );
   });
 
-  it( 'should have 2 files in the graph', function ( done ) {
-    graphResolver.build().then( function () {
-      var files = Object.keys( graphResolver.graph );
-      expect( files.length ).to.equal( 2 );
-      expect( files[ 0 ] ).to.equal('tests/fixtures/a.js');
-      expect( files[ 1 ] ).to.equal('tests/fixtures/lib/b.js')
-      done();
-    });
+  it( 'should have 2 files in the graph', function () {
+    var files = Object.keys( graphResolver.graph );
+    expect( files.length ).to.equal( 2 );
+    expect( files[ 0 ] ).to.equal('tests/fixtures/a.js');
+    expect( files[ 1 ] ).to.equal('tests/fixtures/lib/b.js');
   });
 
 });
