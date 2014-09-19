@@ -3,6 +3,9 @@
     "imports": {
       "lib/b": [
         "default"
+      ],
+      "foo/baz": [
+        "default"
       ]
     },
     "exports": [
