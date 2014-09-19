@@ -10,6 +10,16 @@
     ]
   },
   "tests/fixtures/lib/b.js": {
+    "imports": {
+      "./c": [
+        "default"
+      ]
+    },
+    "exports": [
+      "default"
+    ]
+  },
+  "tests/fixtures/lib/c.js": {
     "imports": {},
     "exports": [
       "default"
