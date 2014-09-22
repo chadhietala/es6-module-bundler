@@ -46,9 +46,12 @@ describe('TreeResolver', function () {
   });
 
   describe( '#resolve()', function () {
-    it( 'should return all dependencies including transitives', function () {
+    it( 'should return all dependencies including transitives outside of the main tree', function () {
       var aDeps = treeResolver.resolve( 'tests/fixtures/a.js' );
       expect( aDeps.length ).to.be.equal( 3 );
+      expect( aDeps[ 0 ] ).to.be.equal( process.cwd() + '/tests/fixtures/lib/b.js' );
+      expect( aDeps[ 1 ] ).to.be.equal( process.cwd() + '/tests/fixtures/lib/c.js' );
+      expect( aDeps[ 2 ] ).to.be.equal( process.cwd() + '/tests/fake_node_modules/foo/baz.js');
     });
   });
 });
